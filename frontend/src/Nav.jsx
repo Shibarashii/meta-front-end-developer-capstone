@@ -1,22 +1,36 @@
-import Logo from './assets/Logo .svg';
+import Logo from './assets/Logo.svg';
 export default function Nav() {
   return (
     <nav>
-      <img src={Logo} alt="Logo" />
       <li>
-        <a href=""> HOME </a>
+        <a href="#">
+          <img src={Logo} alt="Logo" className="logo" />
+        </a>
       </li>
       <li>
-        <a href=""> ABOUT </a>
+        <a href="#" className="nav-link">
+          HOME
+        </a>
       </li>
       <li>
-        <a href=""> MENU </a>
+        <a href="#" className="nav-link">
+          ABOUT
+        </a>
       </li>
       <li>
-        <a href=""> RESERVATIONS </a>
+        <a href="#" className="nav-link">
+          MENU
+        </a>
       </li>
       <li>
-        <a href=""> ORDER ONLINE </a>
+        <a href="#" className="nav-link">
+          RESERVATIONS
+        </a>
+      </li>
+      <li>
+        <a href="#" className="nav-link">
+          ORDER ONLINE
+        </a>
       </li>
     </nav>
   );
