@@ -1,34 +1,39 @@
 import Logo from './assets/Logo.svg';
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
-    <footer>
+    <footer className="d-flex justify-center">
       <img src={Logo} alt="Logo" className="logo" />
       <div className="footer-navigation">
         <li className="footer-highlight"> Footer Navigation </li>
         <li>
-          <a href="" className="nav-link color-secondary-4 footer-text">
+          <Link to="/" className="nav-link color-secondary-4 footer-text">
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="nav-link color-secondary-4 footer-text">
-            About
-          </a>
+          <Link
+            to="/booking"
+            className="nav-link color-secondary-4 footer-text"
+          >
+            Booking
+          </Link>
         </li>
         <li>
-          <a href="" className="nav-link color-secondary-4 footer-text">
+          <Link to="/" className="nav-link color-secondary-4 footer-text">
             Menu
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="nav-link color-secondary-4 footer-text">
+          <Link to="/" className="nav-link color-secondary-4 footer-text">
             Reservations
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="" className="nav-link color-secondary-4 footer-text">
+          <Link to="/" className="nav-link color-secondary-4 footer-text">
             Order Online
-          </a>
+          </Link>
         </li>
       </div>
 
