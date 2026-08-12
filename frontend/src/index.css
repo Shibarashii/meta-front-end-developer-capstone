@@ -15,8 +15,8 @@
   --card-title: 700 12px/1 'Karla', sans-serif;
   --paragraph-text: 400 11px/1 'Karla', sans-serif;
   --highlight-text: 500 11px/1 'Karla', sans-serif;
-  --footer-text: 300 9px/1 'Karla', sans-serif;
-  --footer-highlight: 400 9px/1 'Karla', sans-serif;
+  --footer-text: 300 10px/1 'Karla', sans-serif;
+  --footer-highlight: 400 10px/1 'Karla', sans-serif;
 
   --desktop-display-title: 500 64px/1 'Markazi Text', serif;
   --desktop-subtitle: 400 40px/1 'Markazi Text', serif;
@@ -27,8 +27,8 @@
   --desktop-card-title: 700 18px/1 'Karla', sans-serif;
   --desktop-paragraph-text: 400 16px/1 'Karla', sans-serif;
   --desktop-highlight-text: 500 16px/1 'Karla', sans-serif;
-  --desktop-footer-text: 300 12px/1 'Karla', sans-serif;
-  --desktop-footer-highlight: 400 12px/1 'Karla', sans-serif;
+  --desktop-footer-text: 300 14px/1 'Karla', sans-serif;
+  --desktop-footer-highlight: 400 14px/1 'Karla', sans-serif;
 }
 
 *,

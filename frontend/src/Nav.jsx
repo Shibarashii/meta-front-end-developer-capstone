@@ -8,27 +8,27 @@ export default function Nav() {
         </a>
       </li>
       <li>
-        <a href="#" className="nav-link">
+        <a href="#" className="nav-link color-secondary-4 paragraph-text">
           HOME
         </a>
       </li>
       <li>
-        <a href="#" className="nav-link">
+        <a href="#" className="nav-link color-secondary-4 paragraph-text">
           ABOUT
         </a>
       </li>
       <li>
-        <a href="#" className="nav-link">
+        <a href="#" className="nav-link color-secondary-4 paragraph-text">
           MENU
         </a>
       </li>
       <li>
-        <a href="#" className="nav-link">
+        <a href="#" className="nav-link color-secondary-4 paragraph-text">
           RESERVATIONS
         </a>
       </li>
       <li>
-        <a href="#" className="nav-link">
+        <a href="#" className="nav-link color-secondary-4 paragraph-text">
           ORDER ONLINE
         </a>
       </li>

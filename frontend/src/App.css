@@ -8,17 +8,9 @@ footer {
   padding: 10px 5px;
 }
 
-nav {
-  background-color: var(--secondary-color-3);
-}
-
 footer {
   align-items: baseline;
   gap: 30px;
-}
-
-.footer-category-title {
-  font: var(--footer-highlight);
 }
 
 .logo {
@@ -29,12 +21,6 @@ footer {
 
 .nav-link {
   text-decoration: none;
-  font: var(--paragraph-text);
-  color: var(--secondary-color-4);
-}
-
-footer .nav-link {
-  font: var(--footer-text);
 }
 
 .nav-link:hover {
@@ -42,6 +28,110 @@ footer .nav-link {
   transition: 0.15s;
 }
 
+/* ------------ Helpers ------------ */
+
+/* Colors */
+.color-primary-1 {
+  color: var(--primary-color-1);
+}
+
+.color-primary-2 {
+  color: var(--primary-color-2);
+}
+
+.color-secondary-1 {
+  color: var(--secondary-color-1);
+}
+
+.color-secondary-2 {
+  color: var(--secondary-color-2);
+}
+
+.color-secondary-3 {
+  color: var(--secondary-color-3);
+}
+
+.color-secondary-4 {
+  color: var(--secondary-color-4);
+}
+
+.bg-primary-1 {
+  background-color: var(--primary-color-1);
+}
+
+.bg-primary-2 {
+  background-color: var(--primary-color-2);
+}
+
+.bg-secondary-1 {
+  background-color: var(--secondary-color-1);
+}
+
+.bg-secondary-2 {
+  background-color: var(--secondary-color-2);
+}
+
+.bg-secondary-3 {
+  background-color: var(--secondary-color-3);
+}
+
+.bg-secondary-4 {
+  background-color: var(--secondary-color-4);
+}
+
+/* Fonts */
+.display-title {
+  font: var(--display-title);
+}
+
+.subtitle {
+  font: var(--subtitle);
+}
+
+.lead-text {
+  font: var(--lead-text);
+}
+
+.section-title {
+  font: var(--section-title);
+}
+
+.section-categories {
+  font: var(--section-categories);
+}
+
+.card-title {
+  font: var(--card-title);
+}
+
+.paragraph-text {
+  font: var(--paragraph-text);
+}
+
+.highlight-text {
+  font: var(--highlight-text);
+}
+
+.footer-text {
+  font: var(--footer-text);
+}
+
+.footer-highlight {
+  font: var(--footer-highlight);
+}
+
+/* Layout */
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsiveness */
 @media screen and (min-width: 992px) {
   nav,
   footer {
@@ -49,19 +139,47 @@ footer .nav-link {
     padding: 20px 10px;
   }
 
-  .footer-category-title {
-    font: var(--desktop-footer-highlight);
-  }
-
   .logo {
     height: 30px;
   }
 
-  .nav-link {
+  .display-title {
+    font: var(--desktop-display-title);
+  }
+
+  .subtitle {
+    font: var(--desktop-subtitle);
+  }
+
+  .lead-text {
+    font: var(--desktop-lead-text);
+  }
+
+  .section-title {
+    font: var(--desktop-section-title);
+  }
+
+  .section-categories {
+    font: var(--desktop-section-categories);
+  }
+
+  .card-title {
+    font: var(--desktop-card-title);
+  }
+
+  .paragraph-text {
     font: var(--desktop-paragraph-text);
   }
 
-  footer .nav-link {
+  .highlight-text {
+    font: var(--desktop-highlight-text);
+  }
+
+  .footer-text {
     font: var(--desktop-footer-text);
+  }
+
+  .footer-highlight {
+    font: var(--desktop-footer-highlight);
   }
 }
