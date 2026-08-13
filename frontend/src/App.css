@@ -92,6 +92,13 @@ section {
   object-fit: cover;
 }
 
+.booking-form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+  justify-content: center;
+}
+
 /* ------------ Helpers ------------ */
 
 /* Colors */
