@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const bookingData = [
   { date: '2024-07-10', time: '17:00', guests: 2, occasion: 'Birthday' },
@@ -8,7 +8,7 @@ const bookingData = [
 
 const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('17:00');
+  const [time, setTime] = useState('');
   const [numGuests, setNumGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
@@ -19,14 +19,14 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     if (selectedDate) {
       const parsedDate = new Date(`${selectedDate}T12:00:00`);
       dispatch({ type: 'UPDATE_TIMES', date: parsedDate });
+
+      // Reset time to the first available slot when the date changes,
+      // since the current selection may no longer be valid.
+      if (availableTimes.length > 0 && !availableTimes.includes(time)) {
+        setTime(availableTimes[0]);
+      }
     }
   };
-
-  useEffect(() => {
-    if (availableTimes.length > 0 && !availableTimes.includes(time)) {
-      setTime(availableTimes[0]);
-    }
-  }, [availableTimes, time]);
 
   const handleTimeChange = (e) => {
     setTime(e.target.value);
@@ -45,6 +45,14 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     submitForm({ date, time, numGuests, occasion });
   };
 
+  // Client-side validation: all fields must be filled and guests within range
+  const isFormValid =
+    date !== '' &&
+    time !== '' &&
+    numGuests >= 1 &&
+    numGuests <= 10 &&
+    occasion !== '';
+
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
       <label htmlFor="res-date">Choose date</label>
@@ -53,10 +61,18 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         id="res-date"
         onChange={handleDateChange}
         value={date}
+        required
+        aria-label="Choose date"
       />
 
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" onChange={handleTimeChange} value={time}>
+      <select
+        id="res-time"
+        onChange={handleTimeChange}
+        value={time}
+        required
+        aria-label="Choose time"
+      >
         {availableTimes.map((availableTime) => (
           <option key={availableTime} value={availableTime}>
             {availableTime}
@@ -73,15 +89,28 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         id="guests"
         onChange={handleNumGuestsChange}
         value={numGuests}
+        required
+        aria-label="Number of guests"
       />
 
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" onChange={handleOccasionChange} value={occasion}>
+      <select
+        id="occasion"
+        onChange={handleOccasionChange}
+        value={occasion}
+        required
+        aria-label="Occasion"
+      >
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input
+        type="submit"
+        value="Make Your reservation"
+        disabled={!isFormValid}
+        aria-label="On Click"
+      />
     </form>
   );
 };
@@ -89,7 +118,11 @@ const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
   return (
     <main>
       <section className="d-flex justify-center">
-        <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />
+        <BookingForm
+          availableTimes={availableTimes}
+          dispatch={dispatch}
+          submitForm={submitForm}
+        />
       </section>
 
       <section className="d-flex justify-center" style={{ marginTop: '2rem' }}>

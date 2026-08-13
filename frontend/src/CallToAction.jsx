@@ -1,8 +1,12 @@
 import { LittleLemonDescription } from './Chicago';
 import RestaurantFood from './assets/restauranfood.jpg';
 
-const Button = ({ text }) => {
-  return <button className="call-to-action-button"> {text} </button>;
+const Button = ({ text, onClick, ariaLabel = "On Click" }) => {
+  return (
+    <button className="call-to-action-button" aria-label={ariaLabel} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 const CallToAction = () => {
