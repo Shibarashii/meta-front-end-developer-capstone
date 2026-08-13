@@ -44,12 +44,18 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-link color-secondary-4 paragraph-text">
+          <Link
+            to="/reservations"
+            className="nav-link color-secondary-4 paragraph-text"
+          >
             RESERVATIONS
           </Link>
         </li>
         <li>
-          <Link to="/" className="nav-link color-secondary-4 paragraph-text">
+          <Link
+            to="/order-online"
+            className="nav-link color-secondary-4 paragraph-text"
+          >
             ORDER ONLINE
           </Link>
         </li>
