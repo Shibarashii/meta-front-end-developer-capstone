@@ -93,10 +93,95 @@ section {
 }
 
 .booking-form {
-  display: grid;
-  max-width: 200px;
-  gap: 20px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  gap: 18px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  gap: 8px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font: var(--paragraph-text);
+  background-color: #ffffff;
+  color: var(--secondary-color-4);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color-1);
+  box-shadow: 0 0 0 3px rgba(73, 94, 87, 0.2);
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+  font: var(--lead-text);
+  text-align: center;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.65;
+}
+
+/* Booking Table Styles */
+.table-responsive {
+  width: 100%;
+  max-width: 700px;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+.booking-table th {
+  background-color: var(--primary-color-1);
+  color: var(--secondary-color-3);
+  font: var(--section-title);
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.booking-table td {
+  padding: 12px 20px;
+  font: var(--paragraph-text);
+  color: var(--secondary-color-4);
+  border-bottom: 1px solid var(--secondary-color-3);
+}
+
+.booking-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.booking-table tbody tr:hover {
+  background-color: var(--secondary-color-2);
+}
+
+.confirmed-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* ------------ Helpers ------------ */
@@ -269,6 +354,11 @@ section {
     width: 200px;
     font: var(--desktop-lead-text);
     border-radius: 12px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px 24px;
   }
 
   .menu-img {

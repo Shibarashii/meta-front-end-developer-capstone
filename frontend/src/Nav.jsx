@@ -3,8 +3,20 @@ import Logo from './assets/Logo.svg';
 
 export default function Nav() {
   return (
-    <nav className="d-flex justify-center align-center" aria-label="Main Navigation">
-      <ul className="d-flex justify-center align-center nav-list" style={{ listStyle: 'none', display: 'flex', gap: '1rem', margin: 0, padding: 0 }}>
+    <nav
+      className="d-flex justify-center align-center"
+      aria-label="Main Navigation"
+    >
+      <ul
+        className="d-flex justify-center align-center nav-list"
+        style={{
+          listStyle: 'none',
+          display: 'flex',
+          gap: '1rem',
+          margin: 0,
+          padding: 0,
+        }}
+      >
         <li>
           <Link to="/" aria-label="Little Lemon Home">
             <img src={Logo} alt="Little Lemon Logo" className="logo" />
@@ -24,7 +36,10 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/menu" className="nav-link color-secondary-4 paragraph-text">
+          <Link
+            to="/menu"
+            className="nav-link color-secondary-4 paragraph-text"
+          >
             MENU
           </Link>
         </li>
@@ -34,12 +49,11 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <a href="/" className="nav-link color-secondary-4 paragraph-text">
+          <Link to="/" className="nav-link color-secondary-4 paragraph-text">
             ORDER ONLINE
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
   );
 }
-

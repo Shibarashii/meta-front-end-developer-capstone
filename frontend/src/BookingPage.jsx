@@ -20,8 +20,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
       const parsedDate = new Date(`${selectedDate}T12:00:00`);
       dispatch({ type: 'UPDATE_TIMES', date: parsedDate });
 
-      // Reset time to the first available slot when the date changes,
-      // since the current selection may no longer be valid.
+      // Reset time to the first available slot when the date changes
       if (availableTimes.length > 0 && !availableTimes.includes(time)) {
         setTime(availableTimes[0]);
       }
@@ -54,70 +53,101 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     occasion !== '';
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-      <label htmlFor="res-date">Choose date</label>
-      <input
-        type="date"
-        id="res-date"
-        onChange={handleDateChange}
-        value={date}
-        required
-        aria-label="Choose date"
-      />
+    <form className="booking-form bg-secondary-3 d-flex-column" onSubmit={handleSubmit}>
+      <h2 className="section-title color-primary-1 center-text">Book Now</h2>
 
-      <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
-        onChange={handleTimeChange}
-        value={time}
-        required
-        aria-label="Choose time"
-      >
-        {availableTimes.map((availableTime) => (
-          <option key={availableTime} value={availableTime}>
-            {availableTime}
-          </option>
-        ))}
-      </select>
+      <div className="form-group d-flex-column">
+        <label htmlFor="res-date" className="lead-text color-secondary-4">
+          Choose date
+        </label>
+        <input
+          type="date"
+          id="res-date"
+          onChange={handleDateChange}
+          value={date}
+          required
+          aria-label="Choose date"
+          className="form-control"
+        />
+      </div>
 
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-        onChange={handleNumGuestsChange}
-        value={numGuests}
-        required
-        aria-label="Number of guests"
-      />
+      <div className="form-group d-flex-column">
+        <label htmlFor="res-time" className="lead-text color-secondary-4">
+          Choose time
+        </label>
+        <select
+          id="res-time"
+          onChange={handleTimeChange}
+          value={time}
+          required
+          aria-label="Choose time"
+          className="form-control"
+        >
+          {availableTimes.map((availableTime) => (
+            <option key={availableTime} value={availableTime}>
+              {availableTime}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="occasion">Occasion</label>
-      <select
-        id="occasion"
-        onChange={handleOccasionChange}
-        value={occasion}
-        required
-        aria-label="Occasion"
-      >
-        <option value="Birthday">Birthday</option>
-        <option value="Anniversary">Anniversary</option>
-      </select>
+      <div className="form-group d-flex-column">
+        <label htmlFor="guests" className="lead-text color-secondary-4">
+          Number of guests
+        </label>
+        <input
+          type="number"
+          placeholder="1"
+          min="1"
+          max="10"
+          id="guests"
+          onChange={handleNumGuestsChange}
+          value={numGuests}
+          required
+          aria-label="Number of guests"
+          className="form-control"
+        />
+      </div>
+
+      <div className="form-group d-flex-column">
+        <label htmlFor="occasion" className="lead-text color-secondary-4">
+          Occasion
+        </label>
+        <select
+          id="occasion"
+          onChange={handleOccasionChange}
+          value={occasion}
+          required
+          aria-label="Occasion"
+          className="form-control"
+        >
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+        </select>
+      </div>
 
       <input
         type="submit"
         value="Make Your reservation"
         disabled={!isFormValid}
         aria-label="On Click"
+        className="call-to-action-button submit-btn"
       />
     </form>
   );
 };
+
 const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
   return (
     <main>
-      <section className="d-flex justify-center">
+      {/* Hero Banner aligned with CallToAction styling */}
+      <section className="bg-primary-1 d-flex-column align-center center-text">
+        <h1 className="display-title color-primary-2">Reservations</h1>
+        <p className="subtitle color-secondary-3">Reserve a table at Little Lemon</p>
+      </section>
+
+      {/* Booking Form Section */}
+      <section className="d-flex justify-center align-center">
         <BookingForm
           availableTimes={availableTimes}
           dispatch={dispatch}
@@ -125,30 +155,37 @@ const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
         />
       </section>
 
-      <section className="d-flex justify-center" style={{ marginTop: '2rem' }}>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Guests</th>
-              <th>Occasion</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookingData.map((booking) => (
-              <tr key={`${booking.date}-${booking.time}`}>
-                <td>{booking.date}</td>
-                <td>{booking.time}</td>
-                <td>{booking.guests}</td>
-                <td>{booking.occasion}</td>
+      {/* Existing Bookings Table Section */}
+      <section className="d-flex-column align-center">
+        <h2 className="section-title color-primary-1 center-text" style={{ marginBottom: '1rem' }}>
+          Recent Bookings
+        </h2>
+        <div className="table-responsive">
+          <table className="booking-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Occasion</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {bookingData.map((booking) => (
+                <tr key={`${booking.date}-${booking.time}`}>
+                  <td>{booking.date}</td>
+                  <td>{booking.time}</td>
+                  <td>{booking.guests}</td>
+                  <td>{booking.occasion}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
   );
 };
 
 export default BookingPage;
+
